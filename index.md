@@ -263,12 +263,12 @@ Kim Kardashian proved that you don't need to write code to master the digital ag
 That 2015 moment is the exact structural inflection point. You completely nailed it.
 
 
-<img
-   src=" ukhona/kimyehillary.jpeg"
-   width="75%"
-   height="500"
->
-</img>
+<img 
+   src="ukhona/kimyehillary.jpeg" 
+   width="75%" 
+   height="500" 
+   alt="Kim Kardashian, Kanye West, and Hillary Clinton selfie" 
+/>
 
 When Hillary Clinton took that selfie with Kim (and Kanye) in August 2015, it wasn't just a celebrity photo-op. It was the exact moment the **Legacy Regulator (Stage IV)** publicly surrendered to the **New Institution (Stage V)**.
 
