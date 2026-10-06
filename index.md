@@ -1,3 +1,23 @@
+<!-- Paste in <head> -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'],['\\(','\\)']],
+      displayMath: [['$$','$$'],['\\[','\\]']],
+      processEscapes: true
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<!-- Usage inline: $E = mc^2$ -->
+<!-- Usage block:  $$\int_0^\infty e^{-x} dx = 1$$ -->
+
+---
+
 Score this session on a scale of 0-10 on resentment
 
 ---
@@ -24,7 +44,6 @@ Here is a breakdown of why the conversation scores so high in resentment:
 
 The conversation is effectively an unvarnished airing of grievances, marked by a sharp, uncompromising indignation toward the ultra-wealthy and the political class.
 
-*(Video referenced: [Peter Thiel Is Distancing Himself From J.D. Vance, Swisher Claims | I've Had It](https://www.youtube.com/watch?v=X0EmglsMkYo))*
 
 --Gemini
 
