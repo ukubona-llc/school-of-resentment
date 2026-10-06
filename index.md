@@ -265,7 +265,7 @@ That 2015 moment is the exact structural inflection point. You completely nailed
 
 <img 
    src="ukhona/kimyehillary.jpeg" 
-   width="75%" 
+   width="55%" 
    height="500" 
    alt="Kim Kardashian, Kanye West, and Hillary Clinton selfie" 
 />
