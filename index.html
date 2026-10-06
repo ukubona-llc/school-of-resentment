@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Resentment, Regulation and the Recursive Pentad</title>
-<meta name="description" content="A multi-AI roundtable on ressentiment, platforms, AI safety and error, worked through the Ukubona pentad: Engine, Sample, Adaptation, Regulation, Survivors.">
+<meta name="description" content="A multi-AI roundtable on ressentiment, platforms, AI safety and error, worked through the Ukubona pentad: Engine, Sample, Adaptation, Regulation, Survivors. A second tab applies the pentad to the 2026 Nobel Prize for optogenetics.">
 
 <!-- Favicon: classical pentagram, five vertices joined by diagonals, no circumscribed circle -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6 L75.86 85.6 L8.15 36.4 L91.85 36.4 L24.14 85.6 Z' fill='none' stroke='%23c9a227' stroke-width='6' stroke-linejoin='miter'/%3E%3C/svg%3E">
@@ -69,7 +69,7 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 112px; }
   body {
     margin: 0;
     background: var(--bg);
@@ -140,6 +140,23 @@
     width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center;
     background: var(--gold-soft); color: var(--gold); font: 700 17px/1 Georgia, serif;
   }
+
+  /* ---------- Tabs ---------- */
+  .tabs-row { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .tabs-row::-webkit-scrollbar { display: none; }
+  .tab {
+    appearance: none; background: transparent; border: 0; cursor: pointer; white-space: nowrap;
+    padding: 10px 14px 11px; margin-bottom: -1px; color: var(--ink-3);
+    font: 600 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .04em;
+    border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+  }
+  .tab:first-child { padding-left: 0; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--gold); }
+  .tab:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; border-radius: 6px; }
+  .tabpanel[hidden] { display: none; }
+  table.wide { min-width: 640px; }
+  td .note { font-size: .92em; }
 
   /* ---------- Content ---------- */
   main { padding-block: 44px 72px; }
@@ -220,6 +237,8 @@
   }
   @media print {
     header.top { position: static; }
+    .tabs-row { display: none; }
+    .tabpanel[hidden] { display: block; }
     .waffle-panel { display: none !important; }
   }
 </style>
@@ -260,9 +279,17 @@
       <div class="grid" id="appGrid"><!-- filled from APPS below --></div>
     </nav>
   </div>
+  <div class="wrap">
+    <div class="tabs-row" role="tablist" aria-label="Sections">
+      <button class="tab" id="tabbtn-roundtable" role="tab" type="button" aria-selected="true" aria-controls="tab-roundtable" data-tab="roundtable">Roundtable</button>
+      <button class="tab" id="tabbtn-optogenetics" role="tab" type="button" aria-selected="false" aria-controls="tab-optogenetics" data-tab="optogenetics" tabindex="-1">Optogenetics</button>
+    </div>
+  </div>
 </header>
 
 <main id="top" class="wrap">
+
+<section id="tab-roundtable" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-roundtable">
 
   <p class="eyebrow">Roundtable record &middot; October 2026</p>
   <h1>Resentment, Regulation and the Recursive Pentad</h1>
@@ -455,6 +482,102 @@
     <li>Ukubona LLC. <em>Scale-Aware Perception-Agency Temporal Alignment (SAPATA)</em>. <a href="https://ukubona-llc.github.io/trial/" target="_blank" rel="noopener">ukubona-llc.github.io/trial</a>.</li>
   </ul>
 
+</section>
+
+<section id="tab-optogenetics" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-optogenetics" hidden>
+
+  <p class="eyebrow">Nobel Prize in Physiology or Medicine &middot; announced 5 October 2026</p>
+  <h1>Light as a Control Signal</h1>
+  <p class="lede">The 2026 prize went to Karl Deisseroth (Stanford, HHMI), Peter Hegemann (Humboldt University of Berlin) and Georg Nagel (University of W&uuml;rzburg) for light-gated ion channels and optogenetics. This tab compresses the story through the pentad, then lays the five stages against the neural hierarchy sketched in <a href="https://ukubona-llc.github.io/okubala-kulaba/" target="_blank" rel="noopener">okubala-kulaba</a>.</p>
+  <p class="note">Sections: <a href="#og-what">What was found</a> &middot; <a href="#og-pentad">Pentadic compression</a> &middot; <a href="#og-test">The instrument and the map</a> &middot; <a href="#og-fail">Failure modes</a> &middot; <a href="#og-scn">SCN, melatonin, caffeine</a> &middot; <a href="#og-refs">References</a></p>
+  <hr class="rule">
+
+  <h2 class="sec" id="og-what">1. What was found</h2>
+  <p>Hegemann and Nagel identified channelrhodopsins in the green alga <em>Chlamydomonas reinhardtii</em>: single proteins that sense light and open an ion pore in the same molecule (Nagel 2002, 2003). In 2005 Deisseroth&rsquo;s group, with Edward Boyden as first author and Nagel as a co-author, expressed channelrhodopsin-2 in mammalian neurons and showed that millisecond pulses of blue light could fire them. From there the method spread: a cell type is made light-sensitive by genetics, then switched on or off by light delivered to the tissue.</p>
+  <p class="note">Boyden, first author of the 2005 paper, is not among the three laureates. Priority is part of Stage V, and it is not settled by the prize.</p>
+
+  <h2 class="sec" id="og-pentad">2. Pentadic compression</h2>
+  <p>Two columns read the same five stages. The middle one is the technology story. The right one is the neural layering from okubala-kulaba, which that page itself calls early and speculative.</p>
+
+  <div class="tbl-wrap">
+    <table class="wide">
+      <thead>
+        <tr><th>Stage</th><th>Optogenetics</th><th>Layer, okubala-kulaba</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>I.</strong> Engine</td>
+          <td>Photons, a chromophore, ion gradients across a membrane. An alga steering toward light. No gene and no token yet, only excitability.</td>
+          <td>Ligand milieu<br><span class="note">Sensory-motor / thalamic</span></td>
+        </tr>
+        <tr>
+          <td><strong>II.</strong> Sample</td>
+          <td>The channelrhodopsin sequence: a discrete, transferable DNA token standing in for a continuous 3-D fold and its kinetics. The residual is the gap between sequence and behaviour in a mammalian membrane.</td>
+          <td>Protozoan membrane<br><span class="note">Basal ganglia</span></td>
+        </tr>
+        <tr>
+          <td><strong>III.</strong> Adaptation</td>
+          <td>Insertions, deletions and permutations at scale: promoters, opsin variants, wavelengths, cell types, species. Variation is the working material, and its errors are the catalogue.</td>
+          <td>Second messenger &amp; genetics<br><span class="note">Hippocampus</span></td>
+        </tr>
+        <tr>
+          <td><strong>IV.</strong> Regulation</td>
+          <td>Does the construct resolve as a switch in a living brain? Expression restricted to a cell type, light delivered where it matters, a behaviour or a seizure circuit that actually changes. Tension and extension appear as claims that outrun the readout.</td>
+          <td>Epigenetics &amp; metazoan<br><span class="note">Prefrontal cortex</span></td>
+        </tr>
+        <tr>
+          <td><strong>V.</strong> Survivors &rarr; I&prime;</td>
+          <td>Standard neuroscience infrastructure, clinical programmes, patents, the prize. What survives becomes the environment for the next experiment.</td>
+          <td>Cambrian selection &amp; graveyard<br><span class="note">Motor cortex</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>One detail fits the scheme literally. The Sample was taken from the membrane of a single-celled eukaryote. In the right-hand column that is the protozoan stage, though an alga is not a protozoan in strict taxonomy, so read &ldquo;protozoan&rdquo; there as &ldquo;single-celled&rdquo;.</p>
+
+  <h2 class="sec" id="og-test">3. The instrument and the map</h2>
+  <div class="callout">
+    <p><strong>Optogenetics is the tool that can run the falsification the neural mapping asks for.</strong> okubala-kulaba says the stage-to-region mapping needs lesion tests to move beyond metaphor. A lesion is permanent and coarse. Light-gated silencing is reversible and cell-type specific.</p>
+  </div>
+  <p>That turns the right-hand column into predictions. If stage III really lives in hippocampal recombination, silencing the relevant population during a novel-scene task should degrade construction of the new scene more than recall of the old one. If stage IV is gating, silencing should break selection among candidates and leave generation alone. Each prediction could fail, which is the point. The mapping stays a hypothesis until one of them is run.</p>
+  <p>There is a second, quieter closure. A light pulse that moves a whisker is motor output that becomes sensory input, which is V &rarr; I&prime; in miniature. Cortico-basal-thalamic loops return through the thalamus, so the same loop appears at the anatomical scale of the map and the experimental scale of the tool. That is suggestive. It is not evidence.</p>
+
+  <h2 class="sec" id="og-fail">4. Failure modes</h2>
+  <p>The pentad earns its keep by naming how a story can fail. Candidates for this one:</p>
+  <ul>
+    <li><strong>IV decoupled from I.</strong> A circuit is announced as controlling a behaviour from expression data alone, with no in vivo readout. The sequence exists, the fold was never confirmed, and nothing has resolved.</li>
+    <li><strong>III without IV or V.</strong> Variant libraries that grow without a behavioural or electrophysiological filter. Many constructs, few survivors, no selection pressure doing work.</li>
+    <li><strong>Sufficiency read as necessity.</strong> Activating a population shows it can drive a behaviour. It does not show the animal normally uses it that way. Pairing activation with silencing narrows the claim.</li>
+  </ul>
+  <p class="note">These are candidates, not measured error windows. Nothing here has the standing of the Eigen threshold in section 4 of the first tab.</p>
+
+  <h2 class="sec" id="og-scn">5. SCN, melatonin, caffeine</h2>
+  <p>Light reaches the suprachiasmatic nucleus through the retinohypothalamic tract, and the SCN sets the timing of the nightly melatonin rise from the pineal gland. It is a small structure with a clear input, a clear output and a measurable phase, which makes it a natural place to use light as a tool. Optogenetic work on SCN cell groups exists; I have not opened a specific paper for this page.</p>
+  <p>Caffeine acts on the same pacemaker by a different route. In a human study, evening caffeine delayed the melatonin rhythm by about 40 minutes, roughly half the delay produced by bright light (Burke et al. 2015). A mouse study reports that caffeine lengthens circadian period through adenosine-receptor and cAMP signalling (Oike et al. 2011). I have only seen the first through a search listing and the second through a secondary summary.</p>
+  <p>In pentad terms, light, caffeine and optogenetics all act on the same Stage I excitability. Caffeine is a blunt systemic chemical push. The optical tool gives cell-type-specific control. That is a description, not a new result.</p>
+
+  <h2 class="sec" id="og-refs">6. References</h2>
+  <p class="note">News links were surfaced in search and were not all opened. The primary papers are cited from standard bibliographic detail; only the 2005 DOI resolved when I checked. Nobel Prize pages returned an access error to my fetch.</p>
+  <ul class="refs">
+    <li class="grp">Announcement</li>
+    <li><a href="https://www.nobelprize.org/prizes/medicine/2026/summary/" target="_blank" rel="noopener">The Nobel Prize in Physiology or Medicine 2026</a>, NobelPrize.org.</li>
+    <li><a href="https://www.cnn.com/2026/10/05/science/nobel-prize-medicine-karl-deisseroth-peter-hegemann-georg-nagel-intl" target="_blank" rel="noopener">Nobel Prize in medicine awarded to trio for technique that helps decode mysteries of the brain</a>, CNN, 5 October 2026.</li>
+    <li><a href="https://www.statnews.com/2026/10/05/nobel-prize-medicine-2026-winner-deisseroth-hegemann-nagel/" target="_blank" rel="noopener">2026 Nobel Prize in Medicine awarded for brain research tool called optogenetics</a>, STAT, 5 October 2026.</li>
+    <li><a href="https://www.cbc.ca/news/world/nobel-prize-sweden-medicine-physiology-9.7366536" target="_blank" rel="noopener">Nobel Prize in Medicine awarded to scientists who pioneered work in optogenetics</a>, CBC.</li>
+    <li class="grp">Primary papers</li>
+    <li>Nagel, G. et al. (2002). Channelrhodopsin-1: a light-gated proton channel in green algae. <em>Science</em> 296, 2395&ndash;2398. <a href="https://doi.org/10.1126/science.1072068" target="_blank" rel="noopener">doi</a>.</li>
+    <li>Nagel, G. et al. (2003). Channelrhodopsin-2, a directly light-gated cation-selective membrane channel. <em>PNAS</em> 100, 13940&ndash;13945. <a href="https://doi.org/10.1073/pnas.1936192100" target="_blank" rel="noopener">doi</a>.</li>
+    <li>Boyden, E. S., Zhang, F., Bamberg, E., Nagel, G. &amp; Deisseroth, K. (2005). Millisecond-timescale, genetically targeted optical control of neural activity. <em>Nature Neuroscience</em> 8, 1263&ndash;1268. <a href="https://doi.org/10.1038/nn1525" target="_blank" rel="noopener">doi</a>.</li>
+    <li class="grp">Circadian</li>
+    <li>Burke, T. M. et al. (2015). Effects of caffeine on the human circadian clock in vivo and in vitro. <em>Science Translational Medicine</em> 7, 305ra146. <a href="https://ohsu.elsevierpure.com/en/publications/effects-oficaffeine-on-the-human-circadian-clock-in-vivo-and-in-v" target="_blank" rel="noopener">OHSU record</a>.</li>
+    <li>Oike, H., Kobori, M., Suzuki, T. &amp; Ishida, N. (2011). Caffeine lengthens circadian rhythms in mammals. <em>Molecular Systems Biology</em>. No link opened.</li>
+    <li class="grp">Ukubona</li>
+    <li>Ukubona LLC. <em>okubala-kulaba</em>: a recursive epistemic architecture. <a href="https://ukubona-llc.github.io/okubala-kulaba/" target="_blank" rel="noopener">ukubona-llc.github.io/okubala-kulaba</a>.</li>
+  </ul>
+
+</section>
+
 </main>
 
 <footer>
@@ -499,6 +622,47 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { setOpen(false); btn.focus(); }
   });
+
+  /* ---- Tabs (hash-addressable: #optogenetics, or any anchor inside a panel) ---- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.tabpanel'));
+  function showTab(name, focus) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-tab') === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    panels.forEach(function (p) { p.hidden = p.id !== 'tab-' + name; });
+  }
+  function fromHash() {
+    var h = decodeURIComponent(location.hash.slice(1));
+    if (!h) return;
+    var el = document.getElementById(h);
+    if (!el) return;
+    var panel = el.classList && el.classList.contains('tabpanel') ? el : el.closest('.tabpanel');
+    if (panel) {
+      showTab(panel.id.replace('tab-', ''));
+      if (panel !== el) el.scrollIntoView();
+    }
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () {
+      var name = t.getAttribute('data-tab');
+      showTab(name);
+      try { history.replaceState(null, '', name === 'roundtable' ? location.pathname + location.search : '#' + name); } catch (e) {}
+      window.scrollTo(0, 0);
+    });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      showTab(n.getAttribute('data-tab'), true);
+    });
+  });
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 
   /* ---- Theme toggle ---- */
   var root = document.documentElement;
