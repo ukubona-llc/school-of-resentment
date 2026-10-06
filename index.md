@@ -3,7 +3,7 @@ Score this session on a scale of 0-10 on resentment
 ---
 
 <iframe
-   src="https://www.youtube.com/embed/X0EmglsMkYo&t"
+   src="https://www.youtube.com/embed/X0EmglsMkYo"
    width="75%"
    height="500"
 >
